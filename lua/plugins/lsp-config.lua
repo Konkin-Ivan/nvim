@@ -11,7 +11,8 @@ return {
             require("mason-lspconfig").setup({
                 ensure_installed = {
                     "lua_ls",
-                    "gopls"
+                    "gopls",
+                    "phpactor"
                 }
             })
         end
@@ -22,8 +23,14 @@ return {
             local lspconfig = require("lspconfig")
             lspconfig.lua_ls.setup({})
             lspconfig.gopls.setup({})
+            lspconfig.phpactor.setup({
+                init_options = {
+                    ["symfony.enabled"] = true,
+                },
+            })
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+            vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, {})
+            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
             vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, {})
         end
     }
