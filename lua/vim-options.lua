@@ -6,6 +6,8 @@ vim.cmd("set softtabstop=4")    -- количество пробелов, ими
 vim.cmd("set autoindent")  -- автоматический отступ новой строки
 vim.cmd("set smartindent") -- автоматические отступы для C-подобных языков
 
+vim.api.nvim_set_keymap('i', '<A-o>', '<Esc>', { noremap = true, silent = true }) -- выход из режима встаки
+
 vim.wo.number = true -- нумерация строк
 
 vim.opt.swapfile = false -- оключить свап-файл

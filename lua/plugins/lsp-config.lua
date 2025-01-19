@@ -12,7 +12,8 @@ return {
                 ensure_installed = {
                     "lua_ls",
                     "gopls",
-                    "phpactor"
+                    "phpactor",
+                    "clojure_lsp"
                 }
             })
         end
@@ -28,6 +29,7 @@ return {
                     ["symfony.enabled"] = true,
                 },
             })
+            lspconfig.clojure_lsp.setup({})
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
             vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, {})
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
