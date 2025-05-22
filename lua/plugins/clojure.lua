@@ -7,7 +7,7 @@ return {
     vim.g["conjure#client#clojure#nrepl#connection#auto_repl#enabled"] = false
 
     -- Указываем хост и порт вручную
-    vim.g["conjure#client#clojure#nrepl#connection#default_host"] = "localhost"
+    vim.g["conjure#client#clojure#nrepl#connection#default_host"] = "172.24.0.2"
     vim.g["conjure#client#clojure#nrepl#connection#default_port"] = 5555
 
     -- Настройка сочетаний клавиш

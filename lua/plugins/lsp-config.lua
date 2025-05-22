@@ -67,6 +67,7 @@ return {
         callback = function()
           lspconfig.clojure_lsp.setup({
             cmd = { "clojure-lsp" },
+            filetypes = { "clojure", "edn" },
             on_attach = on_attach,
             settings = {
               clojure = {
