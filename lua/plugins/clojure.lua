@@ -4,21 +4,21 @@ return {
   lazy = true,
   init = function()
     -- Настройки окна
-    vim.g["conjure#log#float#enabled"] = true
+    vim.g["conjure#log#float#enabled"] = false
     vim.g["conjure#log#hud#width"] = 1
     vim.g["conjure#log#hud#height"] = 0.3
-    vim.g["conjure#log#wrap"] = true
-    vim.g["conjure#log#jump_to_latest#enabled"] = true
+    vim.g["conjure#log#wrap"] = false
+    vim.g["conjure#log#jump_to_latest#enabled"] = false
     -- Автоматически открывать лог при выполнении кода
-    vim.g["conjure#log#auto_open"] = true
+    vim.g["conjure#log#auto_open"] = false
     -- Закрывать HUD при переходе в нормальный режим
-    vim.g["conjure#log#hud#close_on_normal_mode"] = true
+    vim.g["conjure#log#hud#close_on_normal_mode"] = false
     -- Отключаем поиск файла .nrepl-port и auto-repl
     vim.g["conjure#client#clojure#nrepl#connection#auto_repl#enabled"] = false
 
     -- Указываем хост и порт вручную
     vim.g["conjure#client#clojure#nrepl#connection#default_host"] = "localhost"
-    vim.g["conjure#client#clojure#nrepl#connection#default_port"] = 5555
+    vim.g["conjure#client#clojure#nrepl#connection#default_port"] = 5556
     vim.g["conjure#client#clojure#nrepl#connection#auto_repl#enabled"] = false
 
     -- Настройка сочетаний клавиш
