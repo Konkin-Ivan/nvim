@@ -73,13 +73,10 @@ return {
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "clojure",
         callback = function()
-          local util = require('lspconfig.util')
-          local fname = vim.api.nvim_buf_get_name(0)
           vim.lsp.start({
             name = "clojure_lsp",
             cmd = { "clojure-lsp" },
             on_attach = on_attach,
-            root_dir = util.find_git_ancestor(fname) or util.path.dirname(fname),
             settings = {
               clojure = {
                 lint = { enabled = true },

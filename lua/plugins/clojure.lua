@@ -2,33 +2,31 @@ return {
   "Olical/conjure",
   ft = { "clojure" },
   lazy = true,
+  keys = {
+    { "<leader>cc", "<cmd>ConjureConnect<CR>", desc = "Conjure: Connect to REPL" },
+    { "<leader>ce", "<cmd>ConjureEvalCurrentForm<CR>", desc = "Conjure: Eval current form" },
+    { "<leader>cl", "<cmd>ConjureEvalCurrentLine<CR>", desc = "Conjure: Eval current line" },
+    { "<leader>cb", "<cmd>ConjureEvalBuf<CR>", desc = "Conjure: Eval buffer" },
+    { "<leader>cs", "<cmd>ConjureSchool<CR>", desc = "Conjure: Open School" },
+    { "<leader>ls", "<cmd>ConjureLogSplit<CR>", desc = "Conjure: Open log (split)" },
+    { "<leader>lt", "<cmd>ConjureLogToggle<CR>", desc = "Conjure: Toggle log" },
+    { "<leader>lq", "<cmd>ConjureLogCloseVisible<CR>", desc = "Conjure: Close visible logs" },
+  },
   init = function()
-    -- Настройки окна
-    vim.g["conjure#log#float#enabled"] = false
+    -- === Настройки окна лога ===
     vim.g["conjure#log#hud#width"] = 1
     vim.g["conjure#log#hud#height"] = 0.3
     vim.g["conjure#log#wrap"] = false
-    vim.g["conjure#log#jump_to_latest#enabled"] = false
-    -- Автоматически открывать лог при выполнении кода
     vim.g["conjure#log#auto_open"] = false
-    -- Закрывать HUD при переходе в нормальный режим
+    vim.g["conjure#log#hud#enabled"] = false
     vim.g["conjure#log#hud#close_on_normal_mode"] = false
-    -- Отключаем поиск файла .nrepl-port и auto-repl
-    vim.g["conjure#client#clojure#nrepl#connection#auto_repl#enabled"] = false
+    vim.g["conjure#log#jump_to_latest#enabled"] = false
 
-    -- Указываем хост и порт вручную
+    -- === Подключение к REPL ===
+    -- Отключаем авто-поиск .nrepl-port
+    vim.g["conjure#client#clojure#nrepl#connection#auto_repl#enabled"] = false
+    -- Явно указываем, куда стучаться
     vim.g["conjure#client#clojure#nrepl#connection#default_host"] = "localhost"
     vim.g["conjure#client#clojure#nrepl#connection#default_port"] = 5556
-    vim.g["conjure#client#clojure#nrepl#connection#auto_repl#enabled"] = false
-
-    -- Настройка сочетаний клавиш
-    vim.keymap.set('n', '<leader>cc', '<cmd>ConjureConnect<CR>', { silent = true })
-    vim.keymap.set('n', '<leader>ce', '<cmd>ConjureEvalCurrentForm<CR>', { silent = true })
-    vim.keymap.set('n', '<leader>cl', '<cmd>ConjureEvalCurrentLine<CR>', { silent = true })
-    vim.keymap.set('n', '<leader>cb', '<cmd>ConjureEvalBuf<CR>', { silent = true })
-    vim.keymap.set('n', '<leader>cs', '<cmd>ConjureSchool<CR>', { silent = true })
-    vim.keymap.set('n', '<leader>ls', '<cmd>ConjureLogSplit<CR>') -- Открыть лог в split
-    vim.keymap.set('n', '<leader>lt', '<cmd>ConjureLogToggle<CR>') -- Переключить видимость
-    vim.keymap.set('n', '<leader>lq', '<cmd>ConjureLogCloseVisible<CR>') -- Закрыть все логи
   end,
 }

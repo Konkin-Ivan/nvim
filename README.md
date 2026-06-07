@@ -1,7 +1,32 @@
-### **Навигация**
+# Редактор для разработки на Clojure
+
+Построен на пакетном менеджере Lazy.
 
 ### Зависимости
-`cljstyle`, `clojure`.
+`Lazy`, `cljstyle`, `clojure`.
+
+**Lazy**
+```bash
+git clone --filter=blob:none --branch=stable https://github.com/folke/lazy.nvim.git ~/.local/share/nvim/lazy/lazy.nvim
+```
+
+**Шрифты**
+```bash
+# Скачиваем архив со шрифтом
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Meslo.zip
+
+# Создаём директорию для шрифтов (если её нет)
+mkdir -p ~/.local/share/fonts
+
+# Распаковываем архив в папку MesloNerd
+unzip Meslo.zip -d ~/.local/share/fonts/MesloNerd/
+
+# Обновление шрифтов
+fc-cache -fv
+
+```
+
+###**Навигация**
 
 - **Перемещение курсора:**  
     + `h` / `j` / `k` / `l`: Влево / вниз / вверх / вправо  
